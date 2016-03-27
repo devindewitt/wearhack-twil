@@ -20,11 +20,23 @@ app.use(express.static(__dirname, "public"));
 app.post('/LEDon', function(req, res) {
     console.log('texting');
     client.messages.create({
-    to: "+16479287149",
+    to: "+16477708918",
     from: "+16475591341",
     body: "Your health condition is very low, would you like to go to the hospital"
 }, function(err, message) {
     console.log(message);
+        client.messages.create({
+    to: "+12263784509",
+    from: "+16475591341",
+    body: "Your health condition is very low, would you like to go to the hospital"
+}, function(err,message,next){
+    console.log(message);
+      client.messages.create({
+    to: "+16479287149",
+    from: "+16475591341",
+    body: "Your health condition is very low, would you like to go to the hospital"
+    });
+});
 });
 });
 
